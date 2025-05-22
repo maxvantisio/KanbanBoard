@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+@theme {  
+    --color-mint-500: rgb(16, 251, 122);
+}
