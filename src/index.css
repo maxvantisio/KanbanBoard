@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
 @theme {  
-    --color-mint-500: rgb(16, 251, 122);
+    --color-todo: #f48897;
+    --color-doing: #f4e688;
+    --color-done: #88f48e;
+    --color-textColor: #172b4d;
+    --color-bgGrey: #f1f2f4;
+    --color-bgNavy: #008299;
 }
