@@ -1,10 +1,49 @@
 @import "tailwindcss";
 
 @theme {  
-    --color-todo: #f48897;
+    --color-todo: #FF6666;
+    --color-doing: #F2824F;
+    --color-done: #69C4BD;
+
+    --color-textColor: #07121F;
+
+    --color-bgTodo: #FFD9D9;
+    --color-textTodoDarker: #B38F8F;
+
+    --color-bgDoing: #FFE6D9;
+    --color-textDoingDarker: #B39386;
+
+    --color-bgDone: #DEFFFC;
+    --color-textDoneDarker: #9BB3B1;
+
+    --color-bgNavy: #34344A;
+    --color-headerText: #EAEFEF;
+
+    --color-todoDarker: #8C3838;
+    --color-doingDarker: #8C5338;
+    --color-doneDarker: #388C84;
+
+    --color-todoDarkest: #542727;
+    --color-doingDarkest: #663A29;
+    --color-doneDarkest: #275450;
+}
+
+/* backup old colors
+--color-todo: #f48897;
     --color-doing: #f4e688;
     --color-done: #88f48e;
     --color-textColor: #172b4d;
-    --color-bgGrey: #f1f2f4;
-    --color-bgNavy: #008299;
-}
+    --color-bgGrey: #d2d2d4;
+    --color-bgNavy: #163941;
+    --color-headerText: #EAEFEF;
+*/
+
+/* backup neon(ish) palette
+--color-todo: #d20c7d;
+    --color-doing: #f6d629;
+    --color-done: #25b3c9;
+    --color-textColor: #410e6b;
+    --color-bgGrey: #D2CAEF;
+    --color-bgNavy: #161320;
+    --color-headerText: #EAEFEF;
+*/
