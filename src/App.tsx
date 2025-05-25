@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+
 import reactLogo from './assets/react.svg'
 import viteLogo from '/electron-vite.animate.svg'
 import './App.css'
@@ -11,6 +12,9 @@ function App() {
   //const [editingIdx, setEditingIdx] = useState<number | null>(null)
   const [editing, setEditing] = useState<{ idx: number, section: number } | null>(null)
   const [editingValue, setEditingValue] = useState('')
+
+  const [ boards, setBoards ] = useState<any[]>([]);
+  const [ selectedBoardId, setSelectedBoardId ] = useState<string | null>(null);
 
   function toClick(index: number) {
     if (index === 1) {
@@ -125,15 +129,15 @@ function App() {
 
   return (
     <>
-      <div className='h-screen flex flex-col overflow-x-hidden max-w-full overflow-y-hidden'>
+      <div className='min-h-screen flex flex-col overflow-x-hidden w-full overflow-y-hidden pb-5'>
         <h2 className='text-center mt-4 font-bold text-2xl m-4 text-headerText'>[insert project name here]</h2>
         <div className="container flex-1 grid gap-4 px-2 grid-cols-3" style={{minHeight:0}}>
-          <div className="column flex flex-col border-4 border-todoDarker rounded-lg">
+          <div className="column flex flex-col border-4 border-todoDarker rounded-lg min-h-0 max-h-[89vh] overflow-auto">
             <div className="colHeader bg-todo rounded-t flex items-center justify-center cursor-pointer" onClick={() => toClick(1)}>
               <h4 className='m-2 text-textColor inline-block select-none font-semibold text-xl'>To Do</h4>
             </div>
-            <div className='colContent flex-1 bg-bgTodo rounded-b overflow-auto border-r-0 border-l-0 border-b-0 border-t-3 border-todoDarker'>
-              <ul id='todo' className='pt-2'>
+            <div className='colContent flex-1 bg-bgTodo rounded-b overflow-auto scrollbar-hidden border-r-0 border-l-0 border-b-0 border-t-3 border-todoDarker'>
+              <ul id='todo' className='pt-2'> 
                 {todoItems.map((item, idx) => (
                   <li 
                   className='bg-todo border-todoDarker border-3 mt-2 ml-4 mr-4 mb-2 p-2 flex justify-between items-center rounded font-semibold text-xl' 
@@ -164,11 +168,11 @@ function App() {
               </ul>
             </div>
           </div>
-          <div className="column flex flex-col border-4 border-doingDarker rounded-lg">
-            <div className='colHeader bg-doing flex items-center rounded-t justify-center cursor-pointer' onClick={() => toClick(2)}>
+          <div className="column flex flex-col border-4 border-doingDarker rounded-lg min-h-0 max-h-[89vh] overflow-auto">
+            <div className='colHeader bg-doing flex items-center rounded-t justify-center cursor-pointer ' onClick={() => toClick(2)}>
               <h4 className='m-2 text-textColor inline-block select-none font-semibold text-xl'>In Progress</h4>
             </div>
-            <div className='colContent flex-1 bg-bgDoing overflow-auto rounded-b border-r-0 border-l-0 border-b-0 border-t-3 border-doingDarker'>
+            <div className='colContent flex-1 bg-bgDoing overflow-auto scrollbar-hidden rounded-b border-r-0 border-l-0 border-b-0 border-t-3 border-doingDarker'>
               <ul id='inprogress' className='pt-2'>
                 
                 {inProgressItems.map((item, idx) => (
@@ -209,11 +213,11 @@ function App() {
               </ul>
             </div>
           </div>
-          <div className="column flex flex-col border-4 border-doneDarker rounded-lg">
+          <div className="column flex flex-col border-4 border-doneDarker rounded-lg min-h-0 max-h-[89vh] overflow-auto">
             <div className='colHeader bg-done flex items-center rounded-t justify-center cursor-pointer' onClick={() => toClick(3)}>
               <h4 className='m-2 text-textColor inline-block select-none font-semibold text-xl'>Done</h4>
             </div>
-            <div className='colContent flex-1 bg-bgDone overflow-auto rounded-b border-r-0 border-l-0 border-b-0 border-t-3 border-doneDarker'>
+            <div className='colContent flex-1 bg-bgDone overflow-auto scrollbar-hidden rounded-b border-r-0 border-l-0 border-b-0 border-t-3 border-doneDarker'>
               <ul id='done' className='pt-2'>
                 
                 {doneItems.map((item, idx) => (

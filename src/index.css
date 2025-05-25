@@ -26,6 +26,19 @@
     --color-todoDarkest: #542727;
     --color-doingDarkest: #663A29;
     --color-doneDarkest: #275450;
+
+    
+}
+
+@layer utilities {
+    .scrollbar-hidden::-webkit-scrollbar {
+        display: none;
+    }
+
+    .scrollbar-hidden {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
 }
 
 /* backup old colors
